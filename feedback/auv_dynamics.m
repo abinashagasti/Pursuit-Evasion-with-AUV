@@ -32,7 +32,7 @@ function dxdt = auv_dynamics(t,x)
     % final points, maybe that way there will be no rush for the AUV to
     % track the actual trajectory
     p1=1;p2=1;
-    q1=3;q2=3;
+    q1=20;q2=30;
     v=0.1;
     x1d=p1+v*(q1-p1)*t;
     x3d=atan2(q2-p2,q1-p1);
