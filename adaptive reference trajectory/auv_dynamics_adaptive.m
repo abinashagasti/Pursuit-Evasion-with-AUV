@@ -1,4 +1,4 @@
-function dxdt = auv_dynamics(t,x)
+function dxdt = auv_dynamics_adaptive(t,x,param)
 % Differential equations for the AUV
     c=0.02567;
     a1=0.28;a2=0.993;a3=0.1729;
@@ -31,14 +31,26 @@ function dxdt = auv_dynamics(t,x)
     % Another edit is possible if we consider only the slope and not the
     % final points, maybe that way there will be no rush for the AUV to
     % track the actual trajectory
-    p1=1;p2=1;
-    q1=2;q2=3;
-    v=0.1;
+%     p1=1;p2=1;
+%     q1=2;q2=3;
+%     v=0.1;
+    p1=param(1);p2=param(2);q1=param(3);q2=param(4);v=param(5);
 %     global p1 p2 q1 q2 v
-    x1d=p1+v*(q1-p1)*t;
+    % Reference trajectories are such that desired point has to be reached,
+    % but we need such that a particular line is to be tracked. So edits
+    % are made further below.
+%     x1d=p1+v*(q1-p1)*t;
+%     x3d=atan2(q2-p2,q1-p1);
+%     x2d=p2+v*(q2-p2)*t;
+%     x1d_dot=v*(q1-p1);
+%     x3d_dot=0;
+%     x1d_ddot=0;
+%     x3d_ddot=0;
+
     x3d=atan2(q2-p2,q1-p1);
-    x2d=p2+v*(q2-p2)*t;
-    x1d_dot=v*(q1-p1);
+    x1d=p1+v*cos(x3d)*t;
+    x2d=p2+v*sin(x3d)*t;
+    x1d_dot=v*cos(x3d);
     x3d_dot=0;
     x1d_ddot=0;
     x3d_ddot=0;

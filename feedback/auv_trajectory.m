@@ -3,11 +3,13 @@ clc
 close all
 
 %%
-p1=1;p2=1;
-q1=20;q2=30;
-v=0.1;
+% p1=0;p2=0;
+% q1=2;q2=3;
+% v=0.1;
 
-[t,x] = ode45(@auv_dynamics,[0,10],[p1,p2,pi/4,0,0,0]);
+global p1 p2 q1 q2 v
+
+[t,x] = ode45(@auv_dynamics,[0,100],[p1,p2,pi/4,0,0,0]);
 % plot(t,x(:,1),'-o',t,x(:,2),'-o')
 % plot(t,x(:,1:2))
 % hold on
