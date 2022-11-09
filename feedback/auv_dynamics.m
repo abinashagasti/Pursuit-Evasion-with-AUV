@@ -31,10 +31,11 @@ function dxdt = auv_dynamics(t,x)
     % Another edit is possible if we consider only the slope and not the
     % final points, maybe that way there will be no rush for the AUV to
     % track the actual trajectory
-    p1=1;p2=1;
-    q1=2;q2=3;
-    v=0.1;
-%     global p1 p2 q1 q2 v
+    
+    global p1 p2 q1 q2 v
+%     p1=1;p2=1;
+%     q1=2;q2=3;
+%     v=0.1;
     x1d=p1+v*(q1-p1)*t;
     x3d=atan2(q2-p2,q1-p1);
     x2d=p2+v*(q2-p2)*t;
