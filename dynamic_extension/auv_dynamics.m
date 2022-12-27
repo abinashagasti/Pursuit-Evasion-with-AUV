@@ -17,6 +17,16 @@ function dxdt = auv_dynamics(t,x)
     x1d_dddot=0;
     x2d_dddot=0;
 
+    % Testing for arbitrary desired trajectory
+%     x1d=t/10;
+%     x2d=sin(t/10);
+%     x1d_dot=0.1;
+%     x2d_dot=0.1*cos(t/10);
+%     x1d_ddot=0;
+%     x2d_ddot=-0.01*sin(t/10);
+%     x1d_dddot=0;
+%     x2d_dddot=-0.001*cos(t/10);
+
     % Defining states of the transformed system 
     x1=x(1);
     x1_dot=x(4)*cos(x(3))-x(5)*sin(x(3));
@@ -27,8 +37,8 @@ function dxdt = auv_dynamics(t,x)
     x2_ddot=(a1*x(4)+b1*x(5)*x(6)+x(7))*sin(x(3))+c*x(4)*x(6)*cos(x(3))...
         +(a2*x(5)+b2*x(4)*x(6))*cos(x(3))-c*x(5)*x(6)*sin(x(3));
 
-    eval1=2;eval2=3;eval3=4;
-    eval4=2;eval5=3;eval6=4;
+    eval1=0.2;eval2=0.3;eval3=0.4;
+    eval4=0.2;eval5=0.3;eval6=0.4;
     
     % Defining desired control input for asymptotic tracking
     % of error in x-y positions
