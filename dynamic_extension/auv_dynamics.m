@@ -25,7 +25,7 @@ function dxdt = auv_dynamics(t,x)
 %     x1d_ddot=0;
 %     x2d_ddot=-0.01*sin(t/10);
 %     x1d_dddot=0;
-%     x2d_dddot=-0.001*cos(t/10);
+%     x2d_dddot=-0.0001*cos(t/10);
 
     % Defining states of the transformed system 
     x1=x(1);

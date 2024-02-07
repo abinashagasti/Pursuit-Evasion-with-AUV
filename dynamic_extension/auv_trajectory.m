@@ -65,9 +65,9 @@ legend('Pursuer','Evader')
 
 %% Storing plot data
 
-writematrix(x(:,1),"/Users/abinashagasti/Work/IITM/Differential Games/Reports/AUV/xdata.dat")
-writematrix(x(:,2),"/Users/abinashagasti/Work/IITM/Differential Games/Reports/AUV/ydata.dat")
-writematrix(x(:,3),"/Users/abinashagasti/Work/IITM/Differential Games/Reports/AUV/psidata.dat")
-writematrix(x(:,1)-(p1+v*(q1-p1)*t),"/Users/abinashagasti/Work/IITM/Differential Games/Reports/AUV/xerror.dat")
-writematrix(x(:,2)-(p2+v*(q2-p2)*t),"/Users/abinashagasti/Work/IITM/Differential Games/Reports/AUV/yerror.dat")
-writematrix(x(:,3)-atan2(q2-p2,q1-p1)*ones(size(t)),"/Users/abinashagasti/Work/IITM/Differential Games/Reports/AUV/psierror.dat");
+% writematrix(x(:,1),"/Users/abinashagasti/Work/IITM/Differential Games/Reports/AUV/xdata.dat")
+% writematrix(x(:,2),"/Users/abinashagasti/Work/IITM/Differential Games/Reports/AUV/ydata.dat")
+% writematrix(x(:,3),"/Users/abinashagasti/Work/IITM/Differential Games/Reports/AUV/psidata.dat")
+% writematrix(x(:,1)-(p1+v*(q1-p1)*t),"/Users/abinashagasti/Work/IITM/Differential Games/Reports/AUV/xerror.dat")
+% writematrix(x(:,2)-(p2+v*(q2-p2)*t),"/Users/abinashagasti/Work/IITM/Differential Games/Reports/AUV/yerror.dat")
+% writematrix(x(:,3)-atan2(q2-p2,q1-p1)*ones(size(t)),"/Users/abinashagasti/Work/IITM/Differential Games/Reports/AUV/psierror.dat");
