@@ -1,0 +1,52 @@
+clear
+clc
+close all
+
+%% Initialize model and desired trajectories
+
+model_parameters = struct("m",30.48,"Iz",3.45,"Xu",-8.8065,"Yv",-65.5457,"Nr",-6.7352,"Xud",-0.93,"Yvd",-35.5,"Nrd",-35.5);
+
+T = 10; % Total time
+
+% Define desired trajectories
+xd_dddot = @(t) 0; 
+yd_dddot = @(t) 0;
+% xd(t) = t; yd(t) = t;
+
+initial_state = [0;0;0;1;0;0;
+    0;0;
+    0;1;0;
+    0;1;0];
+
+% Initialize AUV agent
+agent = AUV_agent(model_parameters,initial_state,T);
+
+[t,state] = agent.trajectory_computation(xd_dddot,yd_dddot);
+
+%%
+
+plot(state(:,1),state(:,2))
+title('Trajectory of AUV Agent')
+xlabel('x-axis')
+ylabel('y-axis')
+
+figure
+plot(t,-state(:,1)+state(:,9))
+hold on
+plot(t,-state(:,2)+state(:,12))
+% plot(t,-state(:,3)+atan2(state(:,2),state(:,1)))
+title('Error in States')
+xlabel('Time')
+ylabel('Error')
+
+legend('x-error','y-error','psi-error')
+legend('x-error','y-error','psi-error')
+
+figure
+plot(t,state(:,7))
+hold on
+plot(t,state(:,8))
+title('Control')
+xlabel('Time')
+ylabel('Value')
+legend('tau1','tau2')

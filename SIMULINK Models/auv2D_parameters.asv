@@ -1,0 +1,8 @@
+clear
+clc
+
+
+
+a1 = Xu/(m-Xud);
+a2 = Yv/(m-Yvd);
+a3 = Nr/(m-Nrd);
