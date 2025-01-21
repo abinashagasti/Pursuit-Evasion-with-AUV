@@ -12,7 +12,7 @@ q1=20;q2=30;
 v=0.01;
 
 % Run for pursuit evasion
-[t,x] = ode45(@auv_dynamics,[0,200],[p1;p2;pi/4;1;0;0;0]);
+[t,x] = ode45(@auv_dynamics,[0,200],[p1;p2;0;1;0;0;0]);
 % plot(t,x(:,1),'-o',t,x(:,2),'-o')
 % plot(t,x(:,1:2))
 % hold on
